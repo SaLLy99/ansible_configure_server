@@ -1,0 +1,14 @@
+
+    - name : copy key
+      copy:
+        src: "{{src}}"
+        dest: "{{dest}}"
+
+    - name : get key
+      shell: cat "{{dest}}"
+      register: pubkey
+
+    - name: put pubkey
+      lineinfile:
+          path: "{{src}}"
+          line: "{{ pubkey }}"

@@ -1,0 +1,6 @@
+
+- name: clone repo
+  git:
+    repo: "{{repo}}"
+    dest: "{{dest}}"
+

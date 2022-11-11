@@ -1,0 +1,10 @@
+
+- name: Copy autorized keys
+  hosts: web
+  become: yes
+  vars:
+     src: /home/devops/.ssh/id_rsa.pub
+     dest: /tmp/key.pub
+
+  roles:
+    - role: copy_key

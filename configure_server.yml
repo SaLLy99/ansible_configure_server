@@ -1,0 +1,18 @@
+- name : Configure nginx
+  hosts: web
+  become: yes
+  vars:
+    packages:
+      - git
+      - nodejs
+      - nginx
+    user: devops
+    repo : https://github.com/fropa/nodejs-hello.git
+    appPath: /tmp/server/server.js
+    dest: /tmp/server
+  roles:
+    - role : packages
+    - role : create_user
+    - role : git_clone
+    - role : configure_nginx
+    - role : run_server
